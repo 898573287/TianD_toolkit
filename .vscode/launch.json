@@ -6,7 +6,8 @@
         "request": "launch",
         "stopOnEntry": true,
         "program": "${file}",
-        "pythonPath": "C:/Program Files/Autodesk/Maya2016/bin/mayapy.exe",
+        //"pythonPath": "C:/Program Files/Autodesk/Maya2016/bin/mayapy.exe",
+        //"pythonPath": "C:/Python27/python.exe",
         "debugOptions": [
             "WaitOnAbnormalExit",
             "WaitOnNormalExit",

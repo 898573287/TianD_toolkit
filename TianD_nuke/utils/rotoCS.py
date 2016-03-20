@@ -7,13 +7,15 @@ def separate(rotoNode):
     ckLayer = rotoNode['curves'].rootLayer
     dir(ckLayer)
     nums = len(ckLayer)
+    rotos = []
     for i in range(nums):
         dup_node = duplicateNode(rotoNode)
         dup_ckLayer = dup_node['curves'].rootLayer
         shapei = dup_ckLayer[i]
         dup_ckLayer.removeAll()
         dup_ckLayer.append(shapei)
-        yield dup_node
+        rotos.append(dup_node)
+    return rotos
 
 def combine(rotoNodes):
     # ROTO节点合并

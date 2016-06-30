@@ -46,9 +46,6 @@ PARAMETER_FUNCTION_DIC = {
 #===============================================================================
 class ASSObject(object):
     
-    #===========================================================================
-    # TianD_toolkit
-    #===========================================================================
     def __init__(self, ass_path):
         super(ASSObject, self).__init__()
         self.__ass_path = ass_path
@@ -63,8 +60,9 @@ class ASSObject(object):
         '''
         return self.__ass_path
     
+
     #===========================================================================
-    # consoleLog
+    # showConsoleLog
     #===========================================================================
     def showConsoleLog(self):
         '''
@@ -82,8 +80,9 @@ class ASSObject(object):
         '''
         ai_plugins.AiLoadPlugins(plugin_path)
         
+
     #===========================================================================
-    # loadASS
+    # load
     #===========================================================================
     def load(self):
         '''
@@ -95,8 +94,9 @@ class ASSObject(object):
         
         ai_dotass.AiASSLoad(self.__ass_path, ai_node_entry.AI_NODE_ALL)
         
+
     #===========================================================================
-    # saveASS
+    # save
     #===========================================================================
     def save(self):
         '''
@@ -104,8 +104,9 @@ class ASSObject(object):
         '''
         ai_dotass.AiASSWrite(self.__ass_path, ai_node_entry.AI_NODE_ALL, False)
             
+
     #===========================================================================
-    # closeASS
+    # close
     #===========================================================================
     def close(self):
         '''
@@ -113,8 +114,9 @@ class ASSObject(object):
         '''
         ai_render.AiEnd()
     
+
     #===========================================================================
-    # getNodeType
+    # draw
     #===========================================================================
     def draw(self, root = None):
         '''
@@ -123,8 +125,9 @@ class ASSObject(object):
         tree = dict()
         return tree
             
+
     #===========================================================================
-    # getASSParamType
+    # getParamType
     #===========================================================================
     def getParamType(self, node, parameter):
         '''
@@ -145,8 +148,9 @@ class ASSObject(object):
                 ptype = ai_params.AiParamGetTypeName(ptypeIndex)
                 return ptype
     
+
     #===========================================================================
-    # getASSParameter
+    # getValue
     #===========================================================================
     def getValue(self, node, parameter):
         '''
@@ -184,8 +188,9 @@ class ASSObject(object):
         else :
             return False
     
+
     #===========================================================================
-    # setASSParameter
+    # setValue
     #===========================================================================
     def setValue(self, node, parameter, value):
         '''
@@ -202,8 +207,24 @@ class ASSObject(object):
         else :
             return False
     
+    
     #===========================================================================
-    # getASSNode
+    # listParams
+    #===========================================================================
+    def listParams(self, node, paramType = None, nameFilter = None):
+        '''
+        List parameters of the node
+        '''        
+        nentry = ai_nodes.AiNodeGetNodeEntry(node)
+        
+        count = ai_node_entry.AiNodeEntryGetNumParams(nentry)
+        
+        generator = ( ai_params.AiParamGetName(ai_node_entry.AiNodeEntryGetParameter(nentry, i)) for i in range(count) )
+        
+        return generator
+
+    #===========================================================================
+    # listNodes
     #===========================================================================
     def listNodes(self, nodeType = None, nameFilter = None, mask = ai_node_entry.AI_NODE_SHADER):
         '''
@@ -256,7 +277,9 @@ if __name__ == '__main__':
     # 3.获取指定类型的节点
     for n in assobj.listNodes("MayaFile"):
         # 4.获取属性
-        value = assobj.getValue(n, "filename")
-        print value
+        print assobj.listParams(n)
+        
+#         value = assobj.getValue(n, "filename")
+#         print value
     # 4.关闭文件
     assobj.close()

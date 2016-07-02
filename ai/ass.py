@@ -270,16 +270,17 @@ class ASSObject(object):
 
 if __name__ == '__main__':
     # 1.ass文件路径
-    ass_file = "E:\\maya\\pSphere2.ass"
+    ass_file = "C:\\Users\\huiguoyu\\Desktop\\qqq.ass"
     # 2.实例化ASSObject
     assobj = ASSObject(ass_file)
-    #assobj.showConsoleLog()
+    assobj.showConsoleLog()
     # 3.获取指定类型的节点
     for n in assobj.listNodes("MayaFile"):
         # 4.获取属性
-        print assobj.listParams(n)
-        
-#         value = assobj.getValue(n, "filename")
-#         print value
-    # 4.关闭文件
+        value = assobj.getValue(n, "filename")
+        newvalue = "c:\\aaa.jpg"
+        # 5.修改属性
+        assobj.setValue(n, "filename", newvalue)
+    # 6.关闭文件
+    assobj.save()
     assobj.close()

@@ -1,0 +1,8 @@
+<root date='20160704'>
+	<scene version=1 name="scene_name" file="path/to/scene_name">
+		<asset version=1 ref="path/to/scene_name">
+		</asset>
+		<asset version=1 ref="path/to/scene_name">
+		</asset>
+	</scene>
+</root>

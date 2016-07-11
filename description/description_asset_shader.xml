@@ -1,0 +1,4 @@
+<root date='20160704'>
+	<asset_shader version=1 name="asset_shader_name"  file="path/to/file_name">
+	</asset_shader>
+</root>

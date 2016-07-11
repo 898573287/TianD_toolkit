@@ -47,6 +47,9 @@ PARAMETER_FUNCTION_DIC = {
 class ASSObject(object):
     
     def __init__(self, ass_path):
+        '''
+        Constructor
+        '''
         super(ASSObject, self).__init__()
         self.__ass_path = ass_path
         self.load()
@@ -54,9 +57,10 @@ class ASSObject(object):
     #===========================================================================
     # getPath
     #===========================================================================
-    def getPath(self):
+    @property
+    def path(self):
         '''
-        return the ass file path
+        Return the ass file path
         '''
         return self.__ass_path
     
@@ -66,7 +70,7 @@ class ASSObject(object):
     #===========================================================================
     def showConsoleLog(self):
         '''
-        show log info in console
+        Show log info in console
         '''
         ai_msg.AiMsgSetConsoleFlags(ai_msg.AI_LOG_ALL)
         
@@ -75,8 +79,8 @@ class ASSObject(object):
     #===========================================================================
     def loadPlugins(self, plugin_path = 'C:/solidangle/mtoadeploy/2014/shaders'):
         '''
-        load third plugins for ai
-        default load mtoa plugins
+        Load third plugins for ai
+        Default load mtoa plugins
         '''
         ai_plugins.AiLoadPlugins(plugin_path)
         
@@ -86,7 +90,7 @@ class ASSObject(object):
     #===========================================================================
     def load(self):
         '''
-        load ass file
+        Load ass file
         '''
         ai_render.AiBegin()
         
@@ -100,7 +104,7 @@ class ASSObject(object):
     #===========================================================================
     def save(self):
         '''
-        save changes
+        Save changes
         '''
         ai_dotass.AiASSWrite(self.__ass_path, ai_node_entry.AI_NODE_ALL, False)
             
@@ -110,7 +114,7 @@ class ASSObject(object):
     #===========================================================================
     def close(self):
         '''
-        close ass file
+        Close ass file
         '''
         ai_render.AiEnd()
     
@@ -120,7 +124,7 @@ class ASSObject(object):
     #===========================================================================
     def draw(self, root = None):
         '''
-        return a dict about the relationship between nodes
+        Return a dict about the relationship between nodes
         '''
         tree = dict()
         return tree
@@ -131,7 +135,7 @@ class ASSObject(object):
     #===========================================================================
     def getParamType(self, node, parameter):
         '''
-        get the parameter type of the node
+        Get the parameter type of the node
         '''
 
         nentry = ai_nodes.AiNodeGetNodeEntry(node)
@@ -154,7 +158,7 @@ class ASSObject(object):
     #===========================================================================
     def getValue(self, node, parameter):
         '''
-        get the parameter value of the node
+        Get the parameter value of the node
         '''
         # 获取节点属性值
         
@@ -177,7 +181,7 @@ class ASSObject(object):
     #===========================================================================
     def isLinked(self, node, parameter):
         '''
-        whether the parameter of the node is linked
+        Whether the parameter of the node is linked
         '''
         
         ptype = self.getParamType(node, parameter)
@@ -194,7 +198,7 @@ class ASSObject(object):
     #===========================================================================
     def setValue(self, node, parameter, value):
         '''
-        set the parameter value of the node
+        Set the parameter value of the node
         '''
         
         ptype = self.getParamType(node, parameter)
@@ -232,7 +236,6 @@ class ASSObject(object):
         '''
         # 获取.ass文件中的节点
         #
-        # 参数ass_file: [string] ass文件路径
         # 参数nodeType: [string] 节点类型
         # 参数nameFilter: [list] 指定节点名称, 如果是None, 就是指定类型的所有节点; 如果是列表, 就匹配列表中的节点名称
         # 参数mask: [global variable] ai_node_entry内定义的节点类型的种类, 包括:
@@ -270,7 +273,7 @@ class ASSObject(object):
 
 if __name__ == '__main__':
     # 1.ass文件路径
-    ass_file = "C:\\Users\\huiguoyu\\Desktop\\qqq.ass"
+    ass_file = "C:\\Users\\huiguoyu\\Desktop\\pSphere_A.ass"
     # 2.实例化ASSObject
     assobj = ASSObject(ass_file)
     assobj.showConsoleLog()

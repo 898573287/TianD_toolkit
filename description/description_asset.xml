@@ -1,0 +1,12 @@
+<root date='20160704'>
+	<asset version=1 name="asset_name" file="path/to/asset_name">
+		<model version=1 name="model_name" ref="path/to/asset/description_name">
+		</model>
+		<texture version =1 name="texture_name" ref="path/to/asset/description_name">
+		</texture>
+		<shader version=1 name="shader_name" ref="path/to/asset/description_name">
+		</shader>
+		<rig version=1 name="rig_name" ref="path/to/asset/description_name">
+		</rig>
+	</asset>
+</root>

@@ -1,0 +1,6 @@
+<root date='20160704'>
+	<asset_rig version=1 name="asset_rig_name" file="path/to/file_name">
+		<model version=1 ref="path/to/asset/description_name">
+		</model>
+	</asset_rig>
+</root>

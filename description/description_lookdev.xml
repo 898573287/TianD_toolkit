@@ -1,0 +1,8 @@
+<root>
+	<lookdev version=1 name="pre_light_name" file="path/to/file_name">
+		<scene version=1 ref="path/to/asset/description_name">
+		</scene>
+		<light version=1 ref="path/to/light/description_name">
+		</light>
+	</lookdev>
+</root>

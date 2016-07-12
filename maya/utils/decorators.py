@@ -24,6 +24,8 @@ def undo(func):
             # start an undo chunkw
             mc.undoInfo(ock=True)
             return func(*args, **kwargs)
+        except Exception,e :
+            raise e, "{0} wraps undo failure!!!".format(func.__name__)
         finally:
             # after calling the func, end the undo chunk and undo
             mc.undoInfo(cck=True)

@@ -1,5 +1,6 @@
 // 将设置放入此文件中以覆盖默认设置
 {
     //Python Path
-    "python.pythonPath": "C:/Program Files/Autodesk/Maya2014/bin/mayapy"
+    "python.pythonPath": "C:/Program Files/Autodesk/Maya2016/bin/mayapy.exe",
+    "python.autoComplete.extraPaths": ["C:/Program Files/Autodesk/Maya2016/Python/Lib/site-packages"]
 }

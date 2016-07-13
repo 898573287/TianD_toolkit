@@ -10,6 +10,10 @@ Created on 2015年11月13日 下午3:55:54
 
 @Description: define ass object
 '''
+import sys
+
+arnold_path = "C:/solidangle/mtoadeploy/2016/scripts"
+arnold_path in sys.path or sys.path.append(arnold_path)
 
 # import ai module
 from arnold import ai_nodes, ai_render, ai_plugins, ai_msg, ai_dotass, ai_node_entry, ai_params, ai_universe
@@ -77,7 +81,7 @@ class ASSObject(object):
     #===========================================================================
     # loadPlugins
     #===========================================================================
-    def loadPlugins(self, plugin_path = 'C:/solidangle/mtoadeploy/2014/shaders'):
+    def loadPlugins(self, plugin_path = 'C:/solidangle/mtoadeploy/2016/shaders'):
         '''
         Load third plugins for ai
         Default load mtoa plugins
@@ -282,9 +286,10 @@ if __name__ == '__main__':
     for n in assobj.listNodes("MayaFile"):
         # 4.获取属性
         value = assobj.getValue(n, "filename")
-        newvalue = "c:\\aaa.jpg"
+        print value
+        #newvalue = "c:\\aaa.jpg"
         # 5.修改属性
-        assobj.setValue(n, "filename", newvalue)
+        #assobj.setValue(n, "filename", newvalue)
     # 6.关闭文件
     assobj.save()
     assobj.close()

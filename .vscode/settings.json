@@ -1,7 +1,11 @@
 // 将设置放入此文件中以覆盖默认设置
 {
     //Python Path
-    //"python.pythonPath": "C:/Program Files/Autodesk/Maya2017/bin/mayapy.exe",
-    "python.pythonPath": "C:/Python27/python.exe",
-    "python.autoComplete.extraPaths": ["C:/Python27/Lib/site-packages"]
+    "python.pythonPath": "E:/Tools/Autodesk/Maya 2014/Maya2014/bin/mayapy.exe",
+    //"python.pythonPath": "C:/Python27/python.exe",
+    "python.autoComplete.extraPaths": [ //"C:/Python27/Lib/site-packages",
+        "E:/Tools/Autodesk/Maya 2014/Maya2014/Python/Lib/site-packages",
+        "E:/Tools/Arnold for Maya/2014/scripts/mtoa",
+        "E:/Tools/Arnold for Maya/2014/scripts/arnold"
+    ]
 }

@@ -12,8 +12,8 @@ Created on 2015年11月13日 下午3:55:54
 '''
 import sys
 
-arnold_path = "C:/solidangle/mtoadeploy/2016/scripts"
-arnold_path in sys.path or sys.path.append(arnold_path)
+#arnold_path = "C:/solidangle/mtoadeploy/2016/scripts"
+#arnold_path in sys.path or sys.path.append(arnold_path)
 
 # import ai module
 from arnold import ai_nodes, ai_render, ai_plugins, ai_msg, ai_dotass, ai_node_entry, ai_params, ai_universe
